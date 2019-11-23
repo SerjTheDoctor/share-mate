@@ -27,7 +27,7 @@ class Auth extends React.Component {
                     {
                         this.state.loginOpened ?
                         <Login toggleLoginOpened={this.toggleLoginOpened}></Login> :
-                        <Register></Register>
+                        <Register toggleLoginOpened={this.toggleLoginOpened}></Register>
                     }
                 </div>
             </div>
