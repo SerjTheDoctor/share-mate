@@ -13,6 +13,7 @@ class Auth extends React.Component {
     }
 
     toggleLoginOpened = () => {
+        console.log('Changing state');
         this.setState({loginOpened: !this.state.loginOpened});
     }
 
@@ -23,12 +24,9 @@ class Auth extends React.Component {
                     <img src="images/logo_color.png" alt=""/>
                 </div>
                 <div className="login-register">
-                    <div className="already-account">
-                        <p className="">Don't have an account? Register now.</p>
-                    </div>
                     {
                         this.state.loginOpened ?
-                        <Login></Login> :
+                        <Login toggleLoginOpened={this.toggleLoginOpened}></Login> :
                         <Register></Register>
                     }
                 </div>
