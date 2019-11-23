@@ -7,6 +7,7 @@ class CompleteProfile extends React.Component {
         super(props);
         this.state = {
             skill: '',
+            img: '',
             allSkills: [],
             age: '',
             location: '',
@@ -67,6 +68,8 @@ class CompleteProfile extends React.Component {
                 </div>
                 <input type="text" className="field field-Linkedin" placeholder="Linkedin" alt="Linkedin" onChange={(event) => this.setState({linkedin: event.target.value})} />
                 <input type="text" className="field field-Github" placeholder="Github" alt="Github" onChange={(event) => this.setState({github: event.target.value})} />
+                
+                <input type="file" className="field field-Appearance" onChange={(event) => this.setState({img: event.target.value})} />
 
                 <input type="text" className="field field-Skills" value={this.state.skill}
                     placeholder="Enter skills" alt="Skills"
