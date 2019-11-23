@@ -33,6 +33,10 @@
         padding: 6px;
         margin-top: 12px;
 
+        &:focus {
+            outline: none;
+        }
+
     }
     .forgot-password {
         cursor: pointer;
@@ -53,5 +57,13 @@
         background-color: #2faaa4;
         color: white;
         margin-top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #42c1ba;
+        }
+        &:focus {
+            outline: none;
+        }
     }
 }
