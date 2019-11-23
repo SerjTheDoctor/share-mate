@@ -1,0 +1,99 @@
+#mentor-candidate {
+    height: 200px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 35px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px #e1e1e1;
+    
+    transform: translate(20px, 0px);
+    transition: display 2px;
+
+    .informations {
+        height: 150px;
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+
+        .image {
+            align-self: center;
+
+            .user-photo {
+                display: flex;
+                height: 80px;
+                width: 80px;
+                border-radius: 40px;
+                overflow: hidden;
+                margin: 0;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+        .details {
+            height: 100%;
+            width: calc(100% - 80px);
+            padding: 5px 15px;
+
+            .name {
+                font: 600 15px 'Poppins', sans-serif;
+            }
+
+            .tags {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font: 300 13px 'Open sans', sans-serif;
+
+                .tag {
+                    height: 20px;
+                    width: fit-content;
+                    padding: 3px 9px;
+                    border-radius: 15px;
+                    margin: 3px;
+                    font: 300 12px 'Maven Pro', sans-serif;
+                    color: #ffffff;
+                    background-color: #b9b9b9;
+
+                    .searched {
+                        background-color: #009129;
+                    }
+                }
+            }
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: row;
+        height: 35px;
+        display: flex;
+        border-top: 1px solid #ebebeb;
+        justify-content: center;
+        vertical-align: middle;
+
+        .view-more {
+            text-decoration: none;
+            border: none;
+            background-color: inherit;
+            color: #707070;
+            justify-self: center;
+            height: 40px;
+
+            &:focus {
+                border: none;
+                outline: none;
+            }
+            &:hover {
+                text-decoration-line: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}

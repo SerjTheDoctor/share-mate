@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import StartPage from './pages/start-page';
 import HomePage from './pages/home-page';
-import CompletePage from './pages/complete-page';
+import CompletePage from './components/complete-page';
 function App() {
   return (
     <div id="App">

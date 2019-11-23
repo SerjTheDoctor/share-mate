@@ -14,10 +14,11 @@ class Login extends React.Component {
     }
 
     handleSubmit = () => {
-        console.log(this.state.email + ' ' + this.state.password);
         // TODO: Use API
         this.setState({toHomePage: true});
     }
+
+    
 
     render() {
         if (this.state.toHomePage) {

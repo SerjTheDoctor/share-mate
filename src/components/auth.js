@@ -13,7 +13,6 @@ class Auth extends React.Component {
     }
 
     toggleLoginOpened = () => {
-        console.log('Changing state');
         this.setState({loginOpened: !this.state.loginOpened});
     }
 
