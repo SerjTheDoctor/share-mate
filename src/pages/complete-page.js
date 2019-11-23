@@ -7,7 +7,13 @@ class CompleteProfile extends React.Component {
         super(props);
         this.state = {
             skill: '',
-            allSkills: []
+            allSkills: [],
+            Age: '',
+            Location: '',
+            Linkedin: '',
+            Sex: ''
+
+
         }
     }
 
@@ -45,9 +51,22 @@ class CompleteProfile extends React.Component {
                     Complete your profile
                 </p>
                 
-                <input type="text" className="field field-Location"  placeholder="Location" alt="Location"/>
-                <input type="number" className="field field-Age" placeholder="Age" alt="Age"/>
-                <input type="number" className="field field-Linkedin" placeholder="Linkedin" alt="Linkedin"/>
+                <input type="text" className="field field-Location"  placeholder="Location" alt="Location" onChange={(event) => this.setState({Location: event.target.value})} />
+                <input type="number" className="field field-Age" placeholder="Age" alt="Age" onChange={(event) => this.setState({Age: event.target.value})} />
+                <div class="fi fi-Sex">
+                <input type="radio" name="radio" onChange = { (event) => 
+                    {if( event.checked === true) this.setState.Sex = "Male" }} />
+                <label>Male</label>
+                <input style={{marginLeft:"20px"}} type="radio" name="radio" 
+                onChange = { (event) => 
+                    {if( event.checked === true) this.setState.Sex = "Female" }} />
+                <label>Female</label>
+                <input style={{marginLeft:"20px"}} type="radio" name="radio" 
+                onChange = { (event) => 
+                    {if( event.checked === true) this.setState.Sex = "Other" }} />
+                <label>Other</label>
+                </div>
+                <input type="number" className="field field-Linkedin" placeholder="Linkedin" alt="Linkedin" onChange={(event) => this.setState({Linkedin: event.target.value})} />
                 <input type="text" className="field field-Skills" value={this.state.skill}
                     placeholder="Enter skills" alt="Skills"
 
