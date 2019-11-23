@@ -82,7 +82,11 @@ class CompleteProfile extends React.Component {
                 <div className="skill-box">
                     {this.listSkills()}
                 </div>
- 
+                <div className="finish-button">
+                    <button>
+                        Done
+                    </button>
+                </div>
             </div>
         );
     }

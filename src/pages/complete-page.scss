@@ -27,6 +27,7 @@
     }
     .skill-box{
         width: 35%;
+        height: 100px;
         margin-left: 32.5%;
         text-align: left;
         margin-top: 12px;
@@ -47,8 +48,11 @@
         padding: 6px;
         margin-top: 12px;
         text-align: center;
+    }
 
-       
-
+    .finish-button{
+    
+        text-align: center;
+        
     }
 }
