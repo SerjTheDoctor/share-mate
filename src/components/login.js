@@ -14,7 +14,22 @@ class Login extends React.Component {
     }
 
     handleSubmit = () => {
-        // TODO: Use API
+        fetch('/login_check', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                mail: this.state.email,
+                password: this.state.password
+            })
+        }).then(response => response.json())
+            .then(data => {
+                if (!data.ok) {
+                    return;
+                }
+            });
+
         this.setState({toHomePage: true});
     }
 

@@ -1,4 +1,4 @@
-#mentor-candidate {
+#candidate-mini {
     height: 200px;
     width: 380px;
     display: flex;
@@ -61,8 +61,17 @@
                     color: #ffffff;
                     background-color: #b9b9b9;
 
-                    .searched {
-                        background-color: #009129;
+                    .rating {
+                        color: #ffffff;
+                        margin-left: 5px;
+                        font: 900 10px 'Open sans', sans-serif;
+                    }
+                }
+                .searched {
+                    background-color: #e85141;
+
+                    .rating {
+                        color: #ffffff;
                     }
                 }
             }

@@ -1,0 +1,103 @@
+#chat-room {
+    height: 100%;
+    width: calc(100% - 350px);
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+
+    .chat-inside {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: white;
+        border-radius: 20px;
+        padding: 30px;
+
+        .messages {
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 50px);
+
+            .msg-line-left {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-bottom: 6px;
+                
+                .msg-photo {
+                    height: 30px;
+                    width: 30px;
+                    overflow: hidden;
+                    border-radius: 15px;
+                    margin-right: 10px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .msg {
+                    width: fit-content;
+                    background-color: #7fc4f3;
+                    color: white;
+                    border-radius: 15px;
+                    padding: 7px 12px;
+                }
+            }
+            .msg-line-right {
+                display: flex;
+                flex-direction: row-reverse;
+                width: 100%;
+                margin-bottom: 6px;
+
+                
+                .msg-photo {
+                    height: 30px;
+                    width: 30px;
+                    overflow: hidden;
+                    border-radius: 15px;
+                    margin-left: 10px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .msg {
+                    width: fit-content;
+                    background-color: #7fc4f3;
+                    color: white;
+                    border-radius: 15px;
+                    padding: 7px 12px;
+                }
+            }
+        }
+        .input-area {
+            display: flex;
+            flex-direction: row;
+            height: 60px;
+            border-top: 1px solid #dadada;
+            padding-top: 20px;
+            align-items: center;
+
+            .input-message {
+                height: 50px;
+                border: 1px solid #dfdfdf;
+                border-radius: 70px;
+                width: 90%;
+                padding: 15px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            .send-button {
+                height: 25px;
+                width: 25px;
+                margin-left: 20px;
+                cursor: pointer;
+
+            }
+        }
+    }
+}

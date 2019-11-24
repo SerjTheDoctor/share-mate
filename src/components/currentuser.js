@@ -1,4 +1,5 @@
 import React from 'react';
+import { getNotification } from '../logic';
 import './currentuser.scss'
 
 class CurrentUser extends React.Component {
@@ -6,12 +7,19 @@ class CurrentUser extends React.Component {
         return (
             <div id="current-user">
                 <div className="user-photo">
-                    <img src="https://scontent.fclj1-1.fna.fbcdn.net/v/t1.0-9/56806503_2501344919936366_6239265756442263552_o.jpg?_nc_cat=102&_nc_oc=AQmtHiNdd0gq65pzViZoPHGi0MaWN_TbaZT5vbMdHacIsznRME-wiW7vEHjmV8OF3gc&_nc_ht=scontent.fclj1-1.fna&oh=45a12c858981675275d515ae98f3fb92&oe=5E8B17A1" alt=""></img>
+                    <img src="/images/user.jpg" alt=""></img>
                 </div>
-                <p className="current-user-name">Raul Mogoș</p>
+                <p className="current-user-name">Sergiu Apostu</p>
                 <div className="notifications">
                     <i className="bell icon outline"></i>
                 </div>
+                {
+                    getNotification() === true ?
+                    (<div className="notification-box">
+                        <p className="notif-text">You have a new connection with  <span className="bold">Jon Ionel</span> !</p>
+                    </div>) :
+                    <div></div>
+                }
             </div>
         );
     }

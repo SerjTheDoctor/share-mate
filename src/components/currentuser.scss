@@ -25,4 +25,24 @@
         margin: 0;
         margin-left: 20px;
     }
+
+    .notification-box {
+        height: 49px;
+        width: fit-content;
+        position: absolute;
+        top: 57px;
+        right: 88px;
+        background-color: #e6e6e6;
+        border-radius: 17px;
+        padding: 15px;
+
+        .notif-text {
+            color: #3498db;
+            font: 600 12px 'Poppins', sans-serif;
+
+            .bold {
+                color: #e42424;
+            }
+        }
+    }
 }

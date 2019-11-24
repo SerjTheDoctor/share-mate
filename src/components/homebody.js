@@ -3,8 +3,6 @@ import Menu from '../components/menu';
 import CandidatesList from '../components/candidateslist';
 import CandidateDetails from '../components/candidatedetails';
 import './homebody.scss';
-import Register from './register';
-import CompleteProfile from './complete-page';
 
 class HomeBody extends React.Component {
     
@@ -30,27 +28,28 @@ class HomeBody extends React.Component {
         return (
             <div id="home-body">
                 <Menu className="menu"></Menu>
-                {   
+                {
+                    !this.props.getWatchDetails() ? 
+                    (<CandidatesList
+                        queryTag={this.props.queryTag}
+                        filterList={this.props.array} 
+                        className="candidates-list"
+                        doWatchDetails={() => this.props.doWatchDetails(true)}
+                    >
+                    </CandidatesList>) :
+                    (<CandidateDetails>
+
+                    </CandidateDetails>)
+
+                }
+                {/* {   
                     this.state.hasCompletedProfile ?
                     (<div>hasCompletedProfile = true</div>) :
                     (<div className="hb-complete-profile">
                         <CompleteProfile ></CompleteProfile>
                     </div>)
-                    // ({
-                    //     !this.props.getWatchDetails() ? 
-                    //     (<CandidatesList
-                    //         queryTag={this.props.queryTag}
-                    //         filterList={this.props.array} 
-                    //         className="candidates-list"
-                    //         doWatchDetails={() => this.props.doWatchDetails(true)}
-                    //     >
-                    //     </CandidatesList>) :
-                    //     (<CandidateDetails>
-
-                    //     </CandidateDetails>)
-
-                    // })
-                }
+                    
+                } */}
             </div>
         );
     }

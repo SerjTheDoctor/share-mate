@@ -10,13 +10,9 @@ class HomePage extends React.Component {
             queryTag: "",
             watchDetails: false
         };
-        
         fetch('/users')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ candidatesList: data })
-                console.log(this.state.candidatesList);
-            });
+            .then(response => response.json() )
+            .then(data => console.log(data));
     }
 
     doWatchDetails = (value) => {
@@ -29,18 +25,44 @@ class HomePage extends React.Component {
         this.setState({
             queryTag: tag
         });
+        if (!tag || tag.length < 1) {
+            this.setState({ candidatesList: [] });
+            return ;
+        }
+        fetch('/users')
+            .then(response => response.json())
+            .then(data => {
+                let newCandidatesList = [];
+                data.forEach(user => {
+                    newCandidatesList.push({
+                        firstName: user['first_name'],
+                        lastName: user['last_name'],
+                        shareCoins: user['shareCoins'],
+                        password: user['password'],
+                        mail: user['mail'],
+                        location: user['location'],
+                        age: user['age'],
+                        image: user['image'],
+                        tags: user['tags']
+                    });
+                });
+
+                newCandidatesList = newCandidatesList.filter(user => {
+                    let ok = false;
+                    user.tags.forEach(tg => {
+                        if (tg['name'].includes(this.state.queryTag)) {
+                            ok = true;
+                        }
+                    });
+                    return ok;
+                });
+
+                this.setState({ candidatesList: newCandidatesList })
+            });
     }
 
     getWatchDetails = () => {
         return this.state.watchDetails;
-    }
-
-    filterByQueryTag = () => {
-        console.log('Filtering...');
-        fetch('/users')
-            .then(response => response.json())
-            .then(data => this.setState({ candidatesList: data }));
-        console.log('Fetched');
     }
 
     render() {
@@ -50,8 +72,8 @@ class HomePage extends React.Component {
                 <HomeBody getWatchDetails={this.getWatchDetails} 
                         queryTag={this.state.queryTag} 
                         doWatchDetails={this.doWatchDetails} 
-                        array={this.candidatesList} 
-                        />
+                        array={this.state.candidatesList} 
+                />
             </div>
         );
     }
