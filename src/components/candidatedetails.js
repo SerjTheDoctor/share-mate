@@ -56,7 +56,7 @@ class CandidateDetails extends React.Component {
                 </div>
                 {
                     this.state.chatState ?
-                    <ChatRoom></ChatRoom> :
+                    <ChatRoom toggleReceiveNotification={this.toggleReceiveNotification}></ChatRoom> :
                     <div></div>
                 }
                 {

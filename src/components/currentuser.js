@@ -7,9 +7,9 @@ class CurrentUser extends React.Component {
         return (
             <div id="current-user">
                 <div className="user-photo">
-                    <img src="/images/user.jpg" alt=""></img>
+                    <img src="http://www.cs.ubbcluj.ro/wp-content/uploads/Mircea-Gabriel-small.jpg" alt=""></img>
                 </div>
-                <p className="current-user-name">Sergiu Apostu</p>
+                <p className="current-user-name">Gabi Mircea</p>
                 <div className="notifications">
                     <i className="bell icon outline"></i>
                 </div>

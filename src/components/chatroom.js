@@ -54,7 +54,7 @@ class ChatRoom extends React.Component {
         return copyMessages.map((msg, index) =>
             <div className={(msg.sender === 1) ? "msg-line-left" : "msg-line-right"} key={index}>
                 <div className="msg-photo">
-                    <img src={(msg.sender === 1) ? MATCH_USER.image : "images/user.jpg"} alt="avatar"/>
+                    <img src={(msg.sender === 1) ? MATCH_USER.image : "http://www.cs.ubbcluj.ro/wp-content/uploads/Mircea-Gabriel-small.jpg"} alt="avatar"/>
                 </div>
                 <div className="msg">
                     <p className="text">{msg.message}</p>
@@ -73,7 +73,9 @@ class ChatRoom extends React.Component {
                     </div>
                     <div className="input-area">
                         <input type="text" className="input-message" alt="Input Message" placeholder="Type a message..."
-                            value={this.state.newMsg} onChange={(event) => this.setState({newMsg: event.target.value})}
+                            value={this.state.newMsg} onChange={(event) => {
+                                this.setState({newMsg: event.target.value});
+                            }}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
                                     this.addMsg();

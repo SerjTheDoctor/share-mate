@@ -28,6 +28,7 @@ class Login extends React.Component {
                 if (!data.ok) {
                     return;
                 }
+                
             });
 
         this.setState({toHomePage: true});

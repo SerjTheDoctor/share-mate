@@ -25,7 +25,7 @@ class HomePage extends React.Component {
         this.setState({
             queryTag: tag
         });
-        if (!tag || tag.length < 1) {
+        if (!tag || tag.length < 2) {
             this.setState({ candidatesList: [] });
             return ;
         }
