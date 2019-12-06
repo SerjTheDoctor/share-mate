@@ -1,5 +1,6 @@
 import React from 'react';
 import { MATCH_USER } from '../logic';
+import { GetMessage } from '../services/chat';
 import './chatroom.scss'
 
 class ChatRoom extends React.Component {
@@ -33,7 +34,8 @@ class ChatRoom extends React.Component {
     }
 
     fetchDta = () => {
-        fetch('/getmessage').then(response => response.json())
+        GetMessage('sergiu.apostu25@gmail.com', MATCH_USER.mail)
+        .then(response => response.json())
         .then(data => {
             let newMessages = [];
             data.forEach(msg => {

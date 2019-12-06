@@ -37,12 +37,10 @@ class HomePage extends React.Component {
                     newCandidatesList.push({
                         firstName: user['first_name'],
                         lastName: user['last_name'],
-                        shareCoins: user['shareCoins'],
-                        password: user['password'],
                         mail: user['mail'],
+                        image: user['image'],
                         location: user['location'],
                         age: user['age'],
-                        image: user['image'],
                         tags: user['tags']
                     });
                 });

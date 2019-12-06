@@ -1,6 +1,7 @@
 import React from 'react';
 import './login.scss';
 import { Redirect } from 'react-router-dom';
+import { AuthLogin } from '../services/auth';
 
 class Login extends React.Component {
 
@@ -14,26 +15,19 @@ class Login extends React.Component {
     }
 
     handleSubmit = () => {
-        fetch('/login_check', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                mail: this.state.email,
-                password: this.state.password
-            })
-        }).then(response => response.json())
-            .then(data => {
-                if (!data.ok) {
-                    return;
+        AuthLogin(this.state.email, this.state.password)
+            .then(response => response.json())
+            .then(res => {
+                console.log(res.ok);
+                if (res.ok === 'false') {
+                    console.log('Attempt to login failed');
+                } else {
+                    console.log('Login accepted');
+                    this.setState({toHomePage: true});
                 }
-                
-            });
-
-        this.setState({toHomePage: true});
+            })
+            .catch(e => console.error(e));
     }
-
     
 
     render() {
@@ -46,7 +40,7 @@ class Login extends React.Component {
                 
                 <div className="already-account">
                     <p className="blue-link" onClick={() => this.props.toggleLoginOpened()}
-                        >Don't have an account? Register now.</p>
+                        >Don't have an account yet? Register now.</p>
                 </div>
 
                 <input type="text" value={this.state.email} onChange={(event) => this.setState({email: event.target.value})}
