@@ -1,7 +1,7 @@
 import React from 'react';
 import './login.scss';
 import { Redirect } from 'react-router-dom';
-import { AuthLogin } from '../services/auth';
+import { AuthLogin } from '../../services/auth';
 
 class Login extends React.Component {
 
@@ -15,18 +15,21 @@ class Login extends React.Component {
     }
 
     handleSubmit = () => {
-        AuthLogin(this.state.email, this.state.password)
-            .then(response => response.json())
-            .then(res => {
-                console.log(res.ok);
-                if (res.ok === 'false') {
-                    console.log('Attempt to login failed');
-                } else {
-                    console.log('Login accepted');
-                    this.setState({toHomePage: true});
-                }
-            })
-            .catch(e => console.error(e));
+        
+
+
+        // AuthLogin(this.state.email, this.state.password)
+        //     .then(response => response.json())
+        //     .then(res => {
+        //         console.log(res.ok);
+        //         if (res.ok === 'false') {
+        //             console.log('Attempt to login failed');
+        //         } else {
+        //             console.log('Login accepted');
+        //             this.setState({toHomePage: true});
+        //         }
+        //     })
+        //     .catch(e => console.error(e));
     }
     
 
@@ -45,7 +48,13 @@ class Login extends React.Component {
 
                 <input type="text" value={this.state.email} onChange={(event) => this.setState({email: event.target.value})}
                     className="field field-email" placeholder="E-mail" alt="email"/>
-                <input type="password" value={this.state.password} onChange={(event) => this.setState({password: event.target.value})}
+                <input type="password" value={this.state.password} 
+                    onChange={(event) => this.setState({password: event.target.value})}
+                    onKeyDown={(event) => {
+                        if (event.keyCode === 13) {
+                            this.handleSubmit();
+                        }
+                    }}
                     className="field field-password" placeholder="Password" alt="password"/>
                 <div className="forgot-password">
                     Forgot password?

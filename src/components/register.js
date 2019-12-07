@@ -53,7 +53,14 @@ class Register extends React.Component {
                 <input type="email" className="field field-email" placeholder="E-mail" alt="email" onChange={(event) => this.setState({email: event.target.value})} />
                 <input type="tel" className="field field-phone" placeholder="Phone number" alt="number" onChange={(event) => this.setState({phoneNumber: event.target.value})} />
                 <input type="password" className="field field-password" placeholder="Password" alt="password" onChange={(event) => this.setState({password: event.target.value})} />
-                <input type="password" className="field field-password" placeholder="Confirm password" alt="password" onChange={(event) => this.setState({confirmedPassword: event.target.value})} />
+                <input type="password" className="field field-password" placeholder="Confirm password" alt="password" 
+                    onChange={(event) => this.setState({confirmedPassword: event.target.value})} 
+                    onKeyDown={(event) => {
+                        if (event.keyCode === 13) {
+                            this.handleSubmit();
+                        }
+                    }}
+                />
 
                 <button onClick={this.handleSubmit} 
                     className="register-button">Register</button>
